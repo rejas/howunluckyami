@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import './main.js';
 import './App.css';
+
+
+import { Tabs, Tab } from 'react-bootstrap';
 
 class Category extends React.Component {
     render() {
         return  (
-            <li className="active"><a data-type="{this.props.type}" href="#">{this.props.type}</a></li>
+            <Tab data-type="{this.props.type}" eventKey={1} title="{this.props.type}">TODO</Tab>
         )
     }
 }
@@ -31,11 +35,13 @@ class App extends Component {
                 </div>
 
                 <div className="App-intro">
-                    <ul className="nav nav-pills nav-justified">
+
+                    <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
                         <Category type={'mounts'} />
                         <Category type={'pets'} />
                         <Category type={'toys'} />
-                    </ul>
+                    </Tabs>
+
                     <div className="row">
                         <div className="form-group col-sm-12 col-md-6 input-group-lg">
                             <input id="tries" type="text" value=""
@@ -49,9 +55,7 @@ class App extends Component {
                     </div>
 
                     <Result value={0} />
-
                 </div>
-
             </div>
         );
     }

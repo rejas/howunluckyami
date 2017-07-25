@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Result from './components/Result.js';
 import './main.js';
 import './App.css';
 
@@ -15,33 +16,6 @@ class Category extends React.Component {
     }
 }
 
-function Result(props) {
-    var result = (1 - ( Math.pow(1 - props.rate, props.tries)));
-
-    /*
-     result = $.grep(items[selectedType], function(e){ return e.id === val; });
-     if (result.length !== 1) {
-     // nothing or multiple items found
-     return;
-     }
-     */
-
-    //this.setState({result: 1 - ( Math.pow(1 - 0.25, val))});
-    //this.setState({result: 1 - ( Math.pow(1 - result[0].rate, val))});
-    // $('.js-result').text(parseFloat(result*100).toFixed(2) + '%');
-    // $('.js-link').attr('href', 'http://www.wowhead.com/item=' + val);
-
-
-    return (
-        <Jumbotron>
-            <p className="h3 col-sm-12 text-center">The chance of dropping the item at least once in you runs is:<br/>
-                <span className="h2 js-result text-success">{result}</span>
-            </p>
-            <a className="js-link" target="_blank">link to wowhead page</a>
-        </Jumbotron>
-    );
-}
-
 class App extends Component {
 
     constructor(props) {
@@ -53,7 +27,6 @@ class App extends Component {
             rate:   1,
             result: 0
         };
-        console.log(Items);
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);

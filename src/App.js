@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from './components/Logo.js';
+import logo from './logo.svg';
 import Result from './components/Result.js';
 import './main.js';
 import './App.css';
@@ -57,7 +57,7 @@ class App extends Component {
             <div className="hulai">
 
                 <Jumbotron>
-                    <Logo />
+                    <img src={logo} className="hulai-logo" alt="logo" />
                     <h1>How unlucky am I?</h1>
                 </Jumbotron>
 

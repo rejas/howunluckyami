@@ -11,7 +11,7 @@ import { Button, ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbot
 class Category extends React.Component {
     render() {
         return  (
-            <Button data-type={this.props.type}>{this.props.type}</Button>
+            <Button className={this.props.class} data-type={this.props.type}>{this.props.type}</Button>
         )
     }
 }
@@ -23,7 +23,7 @@ class App extends Component {
 
         this.state = {
             item: {},
-            optionsdata: [],
+            optionsdata: Items.mounts,
             tries:  0,
             type: ''
         };
@@ -72,7 +72,7 @@ class App extends Component {
 
                 <Grid>
                     <ButtonGroup onClick={this.handleTypeChange}>
-                        <Category type={'mounts'} />
+                        <Category class="active" type={'mounts'} />
                         <Category type={'pets'} />
                         <Category type={'toys'} />
                     </ButtonGroup>

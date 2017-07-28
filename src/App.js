@@ -11,7 +11,7 @@ import { Button, ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbot
 class Category extends React.Component {
     render() {
         return  (
-            <Button>{this.props.type}</Button>
+            <Button data-type={this.props.type}>{this.props.type}</Button>
         )
     }
 }
@@ -22,34 +22,43 @@ class App extends Component {
         super(props);
 
         this.state = {
-            type:   '',
-            tries:  1,
-            rate:   1,
-            result: 0
+            item: {},
+            optionsdata: [],
+            tries:  0,
+            type: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
+        this.handleTypeChange = this.handleTypeChange.bind(this);
     }
-
-    createSelectItems = () => {
-        let items = [];
-        for (let i = 0; i < Items.mounts.length; i++) {
-            items.push(<option key={Items.mounts[i].id} value={Items.mounts[i].rate}>{Items.mounts[i].name}</option>);
-        }
-        return items;
-    };
 
     handleInputChange = (event) => {
         this.setState({tries: event.target.value});
     };
 
     handleSelectChange = (event) => {
-        this.setState({rate: event.target.value});
+        let value = this.state.optionsdata.filter(function(item) {
+            return item.id === Number(event.target.value);
+        });
+        this.setState({item: value[0]});
     };
 
     handleTypeChange = (event) => {
-        this.setState({type: event.target.value});
+        Array.prototype.filter.call(event.target.parentNode.children, function(child) {
+            if (child !== event.target) {
+                child.classList.remove('active');
+            }
+        });
+        event.target.classList.add('active');
+
+        this.setState({optionsdata: Items[event.target.dataset.type]});
+    };
+
+    createSelectItems = () => {
+        return this.state.optionsdata.map((data) => {
+            return (<option key={data.id} value={data.id}>{data.name}</option>)
+        });
     };
 
     render() {
@@ -62,19 +71,11 @@ class App extends Component {
                 </Jumbotron>
 
                 <Grid>
-                    <ButtonGroup>
+                    <ButtonGroup onClick={this.handleTypeChange}>
                         <Category type={'mounts'} />
                         <Category type={'pets'} />
                         <Category type={'toys'} />
                     </ButtonGroup>
-
-                    {/*
-                    <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-                        <ToggleButton value={this.props.type}>{this.props.type}</ToggleButton>
-                        <ToggleButton value={this.props.type}>{this.props.type}</ToggleButton>
-                        <ToggleButton value={this.props.type}>{this.props.type}</ToggleButton>
-                    </ToggleButtonGroup>
-                    */}
 
                     <Row>
                         <FormGroup className="col-sm-12 col-md-6" bsSize="large">
@@ -92,7 +93,7 @@ class App extends Component {
                         </FormGroup>
                     </Row>
 
-                    <Result tries={this.state.tries} rate={this.state.rate}/>
+                    <Result item={this.state.item} tries={this.state.tries}/>
                 </Grid>
             </div>
         );

@@ -4,7 +4,7 @@ export default  {
         {id: 87771,     name: 'Reins of the Heavenly Onyx Cloud Serpent',   rate: 0.01}
     ],
     pets: [
-        {id: 68663,     name: 'Death Talon Whelpguard ',                    rate: 0.14}
+        {id: 68663,     name: 'Death Talon Whelpguard',                     rate: 0.14}
     ],
     toys: [
         {id: 108633,    name: 'Crashin´ Thrashin Cannon Controller',        rate: 0.10},

@@ -2,14 +2,15 @@ import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 
 function Result(props) {
-    const result = (1 - ( Math.pow(1 - props.rate, props.tries)));
+    const result = Math.floor((1 - ( Math.pow(1 - props.item.rate, props.tries))) * 10000) / 100,
+          link = "http://www.wowhead.com/item=" + props.item.id;
 
     return (
         <Jumbotron>
             <p className="h3 col-sm-12 text-center">The chance of dropping the item at least once in you runs is:<br/>
-                <span className="h2 js-result text-success">{result}</span>
+                <span className="h2 js-result text-success">{result} %</span>
             </p>
-            <a className="js-link" target="_blank">link to wowhead page</a>
+            <a target="_blank" href={link}>link to wowhead page</a>
         </Jumbotron>
     );
 }

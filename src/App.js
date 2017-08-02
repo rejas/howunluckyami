@@ -1,20 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
-import Result from './components/Result.js';
-import './main.js';
-import './App.css';
-
 import Items from './data/items';
+import Logo from './components/Logo.svg';
+import Category from './components/Category.js';
+import Result from './components/Result.js';
 
-import { Button, ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
+import { ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
 
-class Category extends React.Component {
-    render() {
-        return  (
-            <Button className={this.props.class} data-type={this.props.type}>{this.props.type}</Button>
-        )
-    }
-}
+import './App.css';
 
 class App extends React.Component {
 
@@ -66,7 +58,7 @@ class App extends React.Component {
             <div className="hulai">
 
                 <Jumbotron>
-                    <img src={logo} className="hulai-logo" alt="logo" />
+                    <img src={Logo} className="hulai-logo" alt="logo" />
                     <h1>How unlucky am I?</h1>
                 </Jumbotron>
 

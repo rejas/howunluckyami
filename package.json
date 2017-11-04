@@ -5,9 +5,9 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "react": "^16.0.0",
-    "react-bootstrap": "^0.31.3",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",

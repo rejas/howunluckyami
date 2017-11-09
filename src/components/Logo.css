@@ -1,10 +1,10 @@
 @keyframes spin {
-    0% { transform: scale(0.5) translateZ(-100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    16% { transform: scale(0.5) translateZ(-100px) rotateX(180deg) rotateY(180deg) rotateZ(0deg); }
-    33% { transform: scale(0.5) translateZ(-100px) rotateX(360deg) rotateY(90deg) rotateZ(180deg); }
-    50% { transform: scale(0.5) translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-    66% { transform: scale(0.5) translateZ(-100px) rotateX(180deg) rotateY(360deg) rotateZ(270deg); }
-    83% { transform: scale(0.5) translateZ(-100px) rotateX(270deg) rotateY(180deg) rotateZ(180deg); }
+      0% { transform: scale(0.5) translateZ(-100px) rotateX(0deg)   rotateY(0deg)   rotateZ(0deg); }
+     16% { transform: scale(0.5) translateZ(-100px) rotateX(180deg) rotateY(180deg) rotateZ(0deg); }
+     33% { transform: scale(0.5) translateZ(-100px) rotateX(360deg) rotateY(90deg)  rotateZ(180deg); }
+     50% { transform: scale(0.5) translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+     66% { transform: scale(0.5) translateZ(-100px) rotateX(180deg) rotateY(360deg) rotateZ(270deg); }
+     83% { transform: scale(0.5) translateZ(-100px) rotateX(270deg) rotateY(180deg) rotateZ(180deg); }
     100% { transform: scale(0.5) translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 #dice {
@@ -13,6 +13,7 @@
     transform-style: preserve-3d;
     animation: spin 50s infinite linear;
     margin: 0 auto;
+    transform-origin: center bottom;
 }
 .side {
     position: absolute;

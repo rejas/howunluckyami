@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import {
     Link,
     Route,
-    NavLink,
-    HashRouter
+    BrowserRouter
 } from 'react-router-dom';
 
 import Items from './data/items';
@@ -68,7 +67,7 @@ class App extends Component {
 
     render() {
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <div className="hulai">
                     <Jumbotron>
                         <Logo/>
@@ -82,19 +81,25 @@ class App extends Component {
                             <Link to="/"><Button>Toys</Button></Link>
                         </ButtonGroup>
 
-                        <div className="content">
-                            <Route exact path="/" component={Home}/>
-                            <Route path="/mounts" component={Mounts}/>
-                            <Route path="/pets" component={Pets}/>
-                            <Route path="/toys" component={Toys}/>
-                        </div>
-
                         <Row>
                             <FormGroup className="col-sm-12 col-md-6" bsSize="large">
                                 <ControlLabel>Tries: </ControlLabel>
                                 <FormControl componentClass="input" type="number" value={this.state.tries}
                                              onChange={this.handleInputChange}/>
                             </FormGroup>
+
+                            <div className="content">
+                                <Route exact path="/" component={Home}/>
+
+                                <Route path='/Mounts' render={(props) => (
+                                    <Mounts {...props} data={
+                                        '1'
+                                    }/>
+                                )}/>
+
+                                <Route path="/pets" component={Pets}/>
+                                <Route path="/toys" component={Toys}/>
+                            </div>
 
                             <FormGroup className="col-sm-12 col-md-6" bsSize="large">
                                 <ControlLabel>Item: </ControlLabel>
@@ -108,7 +113,7 @@ class App extends Component {
                         <Result item={this.state.item} tries={this.state.tries}/>
                     </Grid>
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         );
     }
 }

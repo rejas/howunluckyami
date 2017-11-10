@@ -23,7 +23,7 @@ class App extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
-    }
+    };
 
     handleInputChange = (event) => {
         this.setState({tries: event.target.value});

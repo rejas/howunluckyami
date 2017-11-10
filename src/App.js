@@ -1,6 +1,6 @@
 import React from 'react';
 import Items from './data/items';
-import Logo from './components/Logo.svg';
+import Logo from './components/Logo.js';
 import Category from './components/Category.js';
 import Result from './components/Result.js';
 
@@ -58,7 +58,7 @@ class App extends React.Component {
             <div className="hulai">
 
                 <Jumbotron>
-                    <img src={Logo} className="hulai-logo" alt="logo" />
+                    <Logo />
                     <h1>How unlucky am I?</h1>
                 </Jumbotron>
 

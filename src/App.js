@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import {
+    Route,
+    NavLink,
+    HashRouter
+} from 'react-router-dom';
+
 import Items from './data/items';
 import Logo from './components/Logo.js';
 import Category from './components/Category.js';
 import Result from './components/Result.js';
 
+import Pets from './wow/pets.js';
+import Toys from './wow/toys.js';
+
 import { ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
 
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
 
     constructor(props) {
         super(props);
@@ -55,39 +65,51 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="hulai">
+            <HashRouter>
+                <div className="hulai">
+                    <Jumbotron>
+                        <Logo />
+                        <h1>How unlucky am I?</h1>
+                    </Jumbotron>
 
-                <Jumbotron>
-                    <Logo />
-                    <h1>How unlucky am I?</h1>
-                </Jumbotron>
+                    <Grid>
+                        <li><NavLink to="/">Mounts</NavLink></li>
+                        <li><NavLink to="/pets">Pets</NavLink></li>
+                        <li><NavLink to="/">Toys</NavLink></li>
 
-                <Grid>
-                    <ButtonGroup onClick={this.handleTypeChange}>
-                        <Category class="active" type={'mounts'} />
-                        <Category type={'pets'} />
-                        <Category type={'toys'} />
-                    </ButtonGroup>
+                        <ButtonGroup onClick={this.handleTypeChange}>
+                            <Category class="active" type={'mounts'} />
+                            <Category type={'pets'} />
+                            <Category type={'toys'} />
+                        </ButtonGroup>
 
-                    <Row>
-                        <FormGroup className="col-sm-12 col-md-6" bsSize="large">
-                            <ControlLabel>Tries: </ControlLabel>
-                            <FormControl componentClass="input" type="number" value={this.state.tries}
-                                         onChange={this.handleInputChange}/>
-                        </FormGroup>
+                        <div class="content">
+                            <Route exact path="/" component={Toys}/>
+                            <Route path="/mounts" component={Toys}/>
+                            <Route path="/pets" component={Pets}/>
+                            <Route path="/toys" component={Toys}/>
+                        </div>
 
-                        <FormGroup className="col-sm-12 col-md-6" bsSize="large">
-                            <ControlLabel>Item: </ControlLabel>
-                            <FormControl componentClass="select" placeholder="Select item"
-                                         onChange={this.handleSelectChange}>
-                                {this.createSelectItems()}
-                            </FormControl>
-                        </FormGroup>
-                    </Row>
+                        <Row>
+                            <FormGroup className="col-sm-12 col-md-6" bsSize="large">
+                                <ControlLabel>Tries: </ControlLabel>
+                                <FormControl componentClass="input" type="number" value={this.state.tries}
+                                             onChange={this.handleInputChange}/>
+                            </FormGroup>
 
-                    <Result item={this.state.item} tries={this.state.tries}/>
-                </Grid>
-            </div>
+                            <FormGroup className="col-sm-12 col-md-6" bsSize="large">
+                                <ControlLabel>Item: </ControlLabel>
+                                <FormControl componentClass="select" placeholder="Select item"
+                                             onChange={this.handleSelectChange}>
+                                    {this.createSelectItems()}
+                                </FormControl>
+                            </FormGroup>
+                        </Row>
+
+                        <Result item={this.state.item} tries={this.state.tries}/>
+                    </Grid>
+                </div>
+            </HashRouter>
         );
     }
 }

@@ -8,13 +8,10 @@ import {
 
 import Items from './data/items';
 import Logo from './components/Logo.js';
-import Category from './components/Category.js';
 import Result from './components/Result.js';
 
 import Home from './home.js';
 import Mounts from './wow/mounts.js';
-import Pets from './wow/pets.js';
-import Toys from './wow/toys.js';
 
 import { Button, ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
 
@@ -92,13 +89,16 @@ class App extends Component {
                                 <Route exact path="/" component={Home}/>
 
                                 <Route path='/Mounts' render={(props) => (
-                                    <Mounts {...props} data={
-                                        '1'
-                                    }/>
+                                    <Mounts {...props} type='mounts'/>
                                 )}/>
 
-                                <Route path="/pets" component={Pets}/>
-                                <Route path="/toys" component={Toys}/>
+                                <Route path='/Mounts' render={(props) => (
+                                    <Mounts {...props} type='pets'/>
+                                )}/>
+
+                                <Route path='/Mounts' render={(props) => (
+                                    <Mounts {...props} type='toys'/>
+                                )}/>
                             </div>
 
                             <FormGroup className="col-sm-12 col-md-6" bsSize="large">

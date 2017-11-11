@@ -11,10 +11,12 @@ class Mounts extends Component {
 
         this.state = {
             item: {},
-            optionsdata: Items.mounts,
+            optionsdata: Items[props.type],
             tries:  0,
             type: ''
         };
+
+        console.log(Items[props.type]);
 
         this.handleSelectChange = this.handleSelectChange.bind(this);
     }
@@ -35,6 +37,7 @@ class Mounts extends Component {
     render() {
         return (
             <Row>
+                <h1>{this.props.type}</h1>
                 <FormGroup className="col-sm-12 col-md-6" bsSize="large">
                     <ControlLabel>Item: </ControlLabel>
                     <FormControl componentClass="select" placeholder="Select item"

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import { ControlLabel, FormControl, FormGroup, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
-class Mounts extends React.Component {
+class Home extends Component {
     render() {
         return (
             <Row>
@@ -12,4 +12,4 @@ class Mounts extends React.Component {
     }
 }
 
-export default Mounts;
+export default Home;

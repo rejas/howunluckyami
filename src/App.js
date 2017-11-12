@@ -1,10 +1,10 @@
 import React from 'react';
 import Items from './data/items';
-import Logo from './components/logo/Logo.js';
 import Category from './components/Category.js';
+import Header from './components/header/Header.js';
 import Result from './components/Result.js';
 
-import { ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
+import { ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Row } from 'react-bootstrap';
 
 import './App.css';
 
@@ -57,10 +57,7 @@ class App extends React.Component {
         return (
             <div className="hulai">
 
-                <Jumbotron>
-                    <Logo />
-                    <h1>How unlucky am I?</h1>
-                </Jumbotron>
+                <Header />
 
                 <Grid>
                     <ButtonGroup onClick={this.handleTypeChange}>

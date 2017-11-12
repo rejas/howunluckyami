@@ -1,6 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 .hulai {
   text-align: center;
 }
+
 .jumbotron h1 {
   background-color: white;
   border-top: 1px solid grey;

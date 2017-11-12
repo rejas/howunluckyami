@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Items from './data/items';
+import Items from '../data/items';
 
 import { ControlLabel, FormControl, FormGroup, Row } from 'react-bootstrap';
 

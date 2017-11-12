@@ -6,12 +6,11 @@ import {
     Route
 } from 'react-router-dom';
 
-import Data         from './data/items.js';
-import ItemSelect   from './ItemSelect.js';
-import Logo         from './components/logo/Logo.js';
-import Result       from './components/Result.js';
-
-import Home from './home.js';
+import Data         from '../data/items.js';
+import Home         from '../components/Home.js';
+import ItemSelect   from '../components/ItemSelect.js';
+import Logo         from '../components/logo/Logo.js';
+import Result       from '../components/Result.js';
 
 import { Button, ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
 

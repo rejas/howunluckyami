@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
 import {
+    HashRouter,
     Link,
-    Route,
-    BrowserRouter
+    Route
 } from 'react-router-dom';
 
-import Items from './data/items';
-import Logo from './components/Logo.js';
-import Result from './components/Result.js';
+import Data         from './data/items.js';
+import ItemSelect   from './ItemSelect.js';
+import Logo         from './components/Logo.js';
+import Result       from './components/Result.js';
 
 import Home from './home.js';
-import Mounts from './wow/mounts.js';
 
 import { Button, ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
 
@@ -24,7 +24,6 @@ class App extends Component {
 
         this.state = {
             item: {},
-            optionsdata: Items.mounts,
             tries:  0,
             type: ''
         };
@@ -39,32 +38,22 @@ class App extends Component {
     };
 
     handleSelectChange = (event) => {
-        let value = this.state.optionsdata.filter(function(item) {
+
+        let value = Data.filter(function(item) {
             return item.id === Number(event.target.value);
         });
+
         this.setState({item: value[0]});
     };
 
     handleTypeChange = (event) => {
-        Array.prototype.filter.call(event.target.parentNode.children, function(child) {
-            if (child !== event.target) {
-                child.classList.remove('active');
-            }
-        });
-        event.target.classList.add('active');
-
-        this.setState({optionsdata: Items[event.target.dataset.type]});
-    };
-
-    createSelectItems = () => {
-        return this.state.optionsdata.map((data) => {
-            return (<option key={data.id} value={data.id}>{data.name}</option>)
-        });
+        console.log(event);
+        //this.setState({type: event.target.dataset.type});
     };
 
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className="hulai">
                     <Jumbotron>
                         <Logo/>
@@ -72,10 +61,10 @@ class App extends Component {
                     </Jumbotron>
 
                     <Grid>
-                        <ButtonGroup>
+                        <ButtonGroup onClick={this.handleTypeChange}>
                             <Link to="/mounts"><Button>Mounts</Button></Link>
                             <Link to="/pets"><Button>Pets</Button></Link>
-                            <Link to="/"><Button>Toys</Button></Link>
+                            <Link to="/toys"><Button>Toys</Button></Link>
                         </ButtonGroup>
 
                         <Row>
@@ -88,32 +77,27 @@ class App extends Component {
                             <div className="content">
                                 <Route exact path="/" component={Home}/>
 
-                                <Route path='/Mounts' render={(props) => (
-                                    <Mounts {...props} type='mounts'/>
+                                <Route path='/mounts' render={(props) => (
+                                    <ItemSelect {...props}
+                                                handleSelectChange={this.handleSelectChange} type='mounts'/>
                                 )}/>
 
-                                <Route path='/Mounts' render={(props) => (
-                                    <Mounts {...props} type='pets'/>
+                                <Route path='/pets' render={(props) => (
+                                    <ItemSelect {...props}
+                                                handleSelectChange={this.handleSelectChange} type='pets' />
                                 )}/>
 
-                                <Route path='/Mounts' render={(props) => (
-                                    <Mounts {...props} type='toys'/>
+                                <Route path='/toys' render={(props) => (
+                                    <ItemSelect {...props}
+                                                handleSelectChange={this.handleSelectChange} type='toys' />
                                 )}/>
                             </div>
-
-                            <FormGroup className="col-sm-12 col-md-6" bsSize="large">
-                                <ControlLabel>Item: </ControlLabel>
-                                <FormControl componentClass="select" placeholder="Select item"
-                                             onChange={this.handleSelectChange}>
-                                    {this.createSelectItems()}
-                                </FormControl>
-                            </FormGroup>
                         </Row>
 
                         <Result item={this.state.item} tries={this.state.tries}/>
                     </Grid>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }

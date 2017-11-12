@@ -6,7 +6,7 @@ class Home extends Component {
     render() {
         return (
             <Row>
-                <h1>Home</h1>
+                <h2>Please select a type of item.</h2>
             </Row>
         );
     }

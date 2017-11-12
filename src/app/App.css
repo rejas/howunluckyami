@@ -14,3 +14,7 @@ body {
   border-bottom: 1px solid grey;
   padding: 12px 0;
 }
+
+ .thumbnail {
+   background-color: #000;
+ }

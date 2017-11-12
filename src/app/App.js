@@ -9,10 +9,14 @@ import {
 import Data         from '../data/items.js';
 import Home         from '../components/Home.js';
 import ItemSelect   from '../components/ItemSelect.js';
-import Logo         from '../components/logo/Logo.js';
 import Result       from '../components/Result.js';
 
-import { Button, ButtonGroup, ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row } from 'react-bootstrap';
+import Logo         from '../components/logo/Logo.js';
+import MountIcon    from '../img/mounts.jpg';
+import PetIcon      from '../img/pets.jpg';
+import ToyIcon      from '../img/toys.jpg';
+
+import { ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row, Thumbnail } from 'react-bootstrap';
 
 import './App.css';
 
@@ -52,11 +56,11 @@ class App extends Component {
                     </Jumbotron>
 
                     <Grid>
-                        <ButtonGroup>
-                            <Link to="/mounts"><Button>Mounts</Button></Link>
-                            <Link to="/pets"><Button>Pets</Button></Link>
-                            <Link to="/toys"><Button>Toys</Button></Link>
-                        </ButtonGroup>
+                        <Row>
+                            <Link className="col-sm-12 col-md-4" to="/mounts"><Thumbnail alt="Mounts" src={MountIcon} /></Link>
+                            <Link className="col-sm-12 col-md-4" to="/pets"><Thumbnail alt="Pets" src={PetIcon} /></Link>
+                            <Link className="col-sm-12 col-md-4" to="/toys"><Thumbnail alt="Toys" src={ToyIcon} /></Link>
+                        </Row>
 
                         <Row>
                             <FormGroup className="col-sm-12 col-md-6" bsSize="large">

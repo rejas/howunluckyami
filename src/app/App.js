@@ -29,7 +29,6 @@ class App extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
-        this.handleTypeChange = this.handleTypeChange.bind(this);
     };
 
     handleInputChange = (event) => {
@@ -37,17 +36,10 @@ class App extends Component {
     };
 
     handleSelectChange = (event) => {
-
-        let value = Data.filter(function(item) {
+        let value = Data[event.type].filter(function(item) {
             return item.id === Number(event.target.value);
         });
-
         this.setState({item: value[0]});
-    };
-
-    handleTypeChange = (event) => {
-        console.log(event);
-        //this.setState({type: event.target.dataset.type});
     };
 
     render() {
@@ -60,7 +52,7 @@ class App extends Component {
                     </Jumbotron>
 
                     <Grid>
-                        <ButtonGroup onClick={this.handleTypeChange}>
+                        <ButtonGroup>
                             <Link to="/mounts"><Button>Mounts</Button></Link>
                             <Link to="/pets"><Button>Pets</Button></Link>
                             <Link to="/toys"><Button>Toys</Button></Link>

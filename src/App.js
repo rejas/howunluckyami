@@ -8,7 +8,7 @@ import {
 
 import Data         from './data/items.js';
 import ItemSelect   from './ItemSelect.js';
-import Logo         from './components/Logo.js';
+import Logo         from './components/logo/Logo.js';
 import Result       from './components/Result.js';
 
 import Home from './home.js';
@@ -31,7 +31,7 @@ class App extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
-    }
+    };
 
     handleInputChange = (event) => {
         this.setState({tries: event.target.value});

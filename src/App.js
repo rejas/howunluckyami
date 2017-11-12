@@ -1,6 +1,6 @@
 import React from 'react';
 import Items from './data/items';
-import Logo from './components/Logo.js';
+import Logo from './components/logo/Logo.js';
 import Category from './components/Category.js';
 import Result from './components/Result.js';
 

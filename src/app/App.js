@@ -7,16 +7,16 @@ import {
 } from 'react-router-dom';
 
 import Data         from '../data/items.js';
+import Header       from '../components/header/Header.js';
 import Home         from '../components/Home.js';
 import ItemSelect   from '../components/ItemSelect.js';
 import Result       from '../components/Result.js';
 
-import Logo         from '../components/logo/Logo.js';
 import MountIcon    from '../img/mounts.jpg';
 import PetIcon      from '../img/pets.jpg';
 import ToyIcon      from '../img/toys.jpg';
 
-import { ControlLabel, FormControl, FormGroup, Grid, Jumbotron, Row, Thumbnail } from 'react-bootstrap';
+import { ControlLabel, FormControl, FormGroup, Grid, Row, Thumbnail } from 'react-bootstrap';
 
 import './App.css';
 
@@ -50,10 +50,7 @@ class App extends Component {
         return (
             <HashRouter>
                 <div className="hulai">
-                    <Jumbotron>
-                        <Logo/>
-                        <Link to="/"><h1>How unlucky am I?</h1></Link>
-                    </Jumbotron>
+                    <Header />
 
                     <Grid>
                         <Row>

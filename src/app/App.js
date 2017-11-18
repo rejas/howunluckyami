@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {
     HashRouter,
-    Link,
+    NavLink,
     Route
 } from 'react-router-dom';
 
@@ -54,9 +54,9 @@ class App extends Component {
 
                     <Grid>
                         <Row>
-                            <Link className="col-sm-12 col-md-4" to="/mounts"><Thumbnail alt="Mounts" src={MountIcon} /></Link>
-                            <Link className="col-sm-12 col-md-4" to="/pets"><Thumbnail alt="Pets" src={PetIcon} /></Link>
-                            <Link className="col-sm-12 col-md-4" to="/toys"><Thumbnail alt="Toys" src={ToyIcon} /></Link>
+                            <NavLink className="col-sm-12 col-md-4" to="/mounts"><Thumbnail alt="Mounts" src={MountIcon} /></NavLink>
+                            <NavLink className="col-sm-12 col-md-4" to="/pets"><Thumbnail alt="Pets" src={PetIcon} /></NavLink>
+                            <NavLink className="col-sm-12 col-md-4" to="/toys"><Thumbnail alt="Toys" src={ToyIcon} /></NavLink>
                         </Row>
 
                         <Row>

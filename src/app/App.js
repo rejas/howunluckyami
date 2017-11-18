@@ -27,7 +27,7 @@ class App extends Component {
 
         this.state = {
             item: {},
-            tries:  0,
+            tries: 0,
             type: ''
         };
 

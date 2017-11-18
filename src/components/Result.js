@@ -10,7 +10,7 @@ function Result(props) {
             <h3 className="h3 col-sm-12 text-center">
                 The chance of dropping <a target="_blank" href={link}>{props.item.name}</a> at least once in your runs is:
             </h3>
-            <h2 className="h2 js-result text-success">
+            <h2 className="h2 text-success">
                 {result} %
             </h2>
         </Jumbotron>

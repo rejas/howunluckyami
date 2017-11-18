@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Items from '../data/items';
 
-import { ControlLabel, FormControl, FormGroup, Row } from 'react-bootstrap';
+import { ControlLabel, FormControl, FormGroup } from 'react-bootstrap';
 
 class ItemSelect extends Component {
 

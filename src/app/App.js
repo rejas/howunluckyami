@@ -67,7 +67,7 @@ class App extends Component {
                                              onChange={this.handleInputChange}/>
                             </FormGroup>
 
-                            <div className="content">
+                            <div className="content col-sm-12 col-md-6">
                                 <Route exact path="/" component={Home}/>
 
                                 <Route path='/mounts' render={(props) => (

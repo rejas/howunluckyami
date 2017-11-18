@@ -19,17 +19,15 @@ class ItemSelect extends Component {
 
     render() {
         return (
-            <Row>
-                <FormGroup className="col-sm-12 col-md-6" bsSize="large">
-                    <ControlLabel>Item: </ControlLabel>
-                    <FormControl componentClass="select" placeholder="Select item"
-                                 onChange={this.handleSelectChange}
-                                 defaultValue={"-1"}>
-                        <option value={"-1"} disabled>Please choose the item you wish for</option>
-                        {this.createSelectItems()}
-                    </FormControl>
-                </FormGroup>
-            </Row>
+            <FormGroup bsSize="large">
+                <ControlLabel>Item: </ControlLabel>
+                <FormControl componentClass="select" placeholder="Select item"
+                             onChange={this.handleSelectChange}
+                             defaultValue={"-1"}>
+                    <option value={"-1"} disabled>Please choose the item you wish for</option>
+                    {this.createSelectItems()}
+                </FormControl>
+            </FormGroup>
         );
     }
 }

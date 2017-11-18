@@ -25,7 +25,7 @@ class ItemSelect extends Component {
                     <FormControl componentClass="select" placeholder="Select item"
                                  onChange={this.handleSelectChange}
                                  defaultValue={"-1"}>
-                        <option value={"-1"} disabled>Please choose</option>
+                        <option value={"-1"} disabled>Please choose the item you wish for</option>
                         {this.createSelectItems()}
                     </FormControl>
                 </FormGroup>

@@ -26,8 +26,8 @@ class App extends Component {
         super(props);
 
         this.state = {
-            item: {},
-            tries: 0,
+            item: '',
+            tries: '',
             type: ''
         };
 
@@ -63,6 +63,7 @@ class App extends Component {
                             <FormGroup className="col-sm-12 col-md-6" bsSize="large">
                                 <ControlLabel>Tries: </ControlLabel>
                                 <FormControl componentClass="input" type="number" value={this.state.tries}
+                                             placeholder={"Please enter number of tries"}
                                              onChange={this.handleInputChange}/>
                             </FormGroup>
 

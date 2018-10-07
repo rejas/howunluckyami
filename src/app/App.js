@@ -1,35 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { HashRouter, Route } from 'react-router-dom';
+import {withStyles} from "@material-ui/core";
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Data from '../data/items.js';
+import Header from '../components/Header';
+import ItemSelect from '../components/ItemSelect';
+import Result from '../components/Result';
+import Navigation from "../components/Navigation";
 
-import {
-    HashRouter,
-    NavLink,
-    Route
-} from 'react-router-dom';
+const styles = theme => ({
+    root: {
+    }
+});
 
-import Data         from '../data/items.js';
-import Header       from '../components/header/Header.js';
-import Home         from '../components/Home.js';
-import ItemSelect   from '../components/ItemSelect.js';
-import Result       from '../components/Result.js';
+class App extends React.Component {
 
-import MountIcon    from '../img/mounts.jpg';
-import PetIcon      from '../img/pets.jpg';
-import ToyIcon      from '../img/toys.jpg';
-
-import { ControlLabel, FormControl, FormGroup, Grid, Row, Thumbnail } from 'react-bootstrap';
-
-import './App.css';
-
-class App extends Component {
+    state = {
+        item: '',
+        tries: '',
+        type: ''
+    };
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            item: '',
-            tries: '',
-            type: ''
-        };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -47,52 +41,57 @@ class App extends Component {
     };
 
     render() {
+        const { classes } = this.props;
+
         return (
             <HashRouter>
-                <div className="hulai">
-                    <Header />
+                <Grid container spacing={24}
+                      justify="center">
+                    <Grid item xs={12}>
+                        <Header />
+                    </Grid>
 
-                    <Grid>
-                        <Row>
-                            <NavLink className="col-sm-12 col-md-4" to="/mounts"><Thumbnail alt="Mounts" src={MountIcon} /></NavLink>
-                            <NavLink className="col-sm-12 col-md-4" to="/pets"><Thumbnail alt="Pets" src={PetIcon} /></NavLink>
-                            <NavLink className="col-sm-12 col-md-4" to="/toys"><Thumbnail alt="Toys" src={ToyIcon} /></NavLink>
-                        </Row>
+                    <Grid item xs={6}>
+                        <TextField
+                            id="standard-name"
+                            label="Tries"
+                            value={this.state.name}
+                            onChange={this.handleInputChange}
+                        />
+                    </Grid>
 
-                        <Row>
-                            <FormGroup className="col-sm-12 col-md-6" bsSize="large">
-                                <ControlLabel>Tries: </ControlLabel>
-                                <FormControl componentClass="input" type="number" value={this.state.tries}
-                                             placeholder={"Please enter number of tries"}
-                                             onChange={this.handleInputChange}/>
-                            </FormGroup>
+                    <Grid item xs={6}>
+                        <Route exact path="/" render={(props) => (
+                            <h2>Please select a type of item.</h2>
+                        )}/>
 
-                            <div className="content col-sm-12 col-md-6">
-                                <Route exact path="/" component={Home}/>
+                        <Route path='/mounts' render={(props) => (
+                            <ItemSelect {...props}
+                                        handleSelectChange={this.handleSelectChange} type='mounts'/>
+                        )}/>
 
-                                <Route path='/mounts' render={(props) => (
-                                    <ItemSelect {...props}
-                                                handleSelectChange={this.handleSelectChange} type='mounts'/>
-                                )}/>
+                        <Route path='/pets' render={(props) => (
+                            <ItemSelect {...props}
+                                        handleSelectChange={this.handleSelectChange} type='pets' />
+                        )}/>
 
-                                <Route path='/pets' render={(props) => (
-                                    <ItemSelect {...props}
-                                                handleSelectChange={this.handleSelectChange} type='pets' />
-                                )}/>
+                        <Route path='/toys' render={(props) => (
+                            <ItemSelect {...props}
+                                        handleSelectChange={this.handleSelectChange} type='toys' />
+                        )}/>
+                    </Grid>
 
-                                <Route path='/toys' render={(props) => (
-                                    <ItemSelect {...props}
-                                                handleSelectChange={this.handleSelectChange} type='toys' />
-                                )}/>
-                            </div>
-                        </Row>
-
+                    <Grid item xs={12} md={6}>
                         <Result item={this.state.item} tries={this.state.tries}/>
                     </Grid>
-                </div>
+
+                    <Grid item xs={12}>
+                        <Navigation />
+                    </Grid>
+                </Grid>
             </HashRouter>
         );
     }
 }
 
-export default App;
+export default withStyles(styles)(App);

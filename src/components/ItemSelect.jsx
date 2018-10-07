@@ -1,23 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Items from '../data/items';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Items from "../data/items";
 
 const styles = theme => ({
     root: {
-        minWidth: 120,
+        minWidth: 120
     }
 });
 
 class ItemSelect extends React.Component {
-
     state = {
-        item: '',
-        name: 'item'
+        item: "",
+        name: "item"
     };
 
     handleSelectChange = event => {
@@ -27,8 +26,12 @@ class ItemSelect extends React.Component {
     };
 
     createSelectItems = () => {
-        return Items[this.props.type].map((data) => {
-            return (<MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>)
+        return Items[this.props.type].map(data => {
+            return (
+                <MenuItem key={data.id} value={data.id}>
+                    {data.name}
+                </MenuItem>
+            );
         });
     };
 
@@ -42,8 +45,8 @@ class ItemSelect extends React.Component {
                     value={this.state.item}
                     onChange={this.handleSelectChange}
                     inputProps={{
-                        name: 'item',
-                        id: 'item',
+                        name: "item",
+                        id: "item"
                     }}
                 >
                     {this.createSelectItems()}
@@ -54,7 +57,7 @@ class ItemSelect extends React.Component {
 }
 
 ItemSelect.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ItemSelect);

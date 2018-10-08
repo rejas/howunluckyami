@@ -24,9 +24,7 @@ class Header extends React.Component {
                 <AppBar position="static" color="default">
                     <Toolbar>
                         <GamepadIcon className={classes.logo} />
-                        <Typography variant="title">
-                            How unlucky am I?
-                        </Typography>
+                        <Typography variant="h5">How unlucky am I?</Typography>
                     </Toolbar>
                 </AppBar>
             </div>

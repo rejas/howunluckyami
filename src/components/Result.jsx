@@ -19,8 +19,6 @@ const styles = theme => ({
 function Result(props) {
     const { classes } = props;
 
-    console.log(props);
-
     let result =
             Math.floor(
                 (1 - Math.pow(1 - props.item.rate, props.tries)) * 10000

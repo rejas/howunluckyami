@@ -65,12 +65,11 @@ class ItemSelect extends React.Component {
                 >
                     <Grid item xs={12}>
                         <Typography variant="h5" className={classes.title}>
-                            Select a category and an item, enter your tries and
-                            find out how unlucky you really are.
+                            Select a category, an item and enter your tries.
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <FormControl className={classes.input}>
                             <TextField
                                 label="Tries"
@@ -85,7 +84,7 @@ class ItemSelect extends React.Component {
                         </FormControl>
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <FormControl className={classes.input}>
                             <InputLabel htmlFor="item">Item</InputLabel>
                             <Select

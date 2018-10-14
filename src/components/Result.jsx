@@ -7,18 +7,19 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-const styles = {
+const styles = theme => ({
     card: {
-        minWidth: 275
+        textAlign: "center"
     },
     title: {
-        marginBottom: 16,
-        fontSize: 14
+        marginBottom: theme.spacing.unit * 2
     }
-};
+});
 
 function Result(props) {
     const { classes } = props;
+
+    console.log(props);
 
     let result =
             Math.floor(
@@ -34,7 +35,7 @@ function Result(props) {
         <Card className={classes.card}>
             <CardContent>
                 <Typography
-                    variant="h6"
+                    variant="h5"
                     className={classes.title}
                     color="textSecondary"
                 >

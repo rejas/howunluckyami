@@ -4,23 +4,40 @@ import { withStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
+import TextField from "@material-ui/core/TextField/TextField";
 import Items from "../data/items";
+import Typography from "@material-ui/core/Typography/Typography";
+import Grid from "@material-ui/core/Grid/Grid";
 
 const styles = theme => ({
     root: {
-        minWidth: 120
+        padding: theme.spacing.unit * 2
+    },
+    title: {
+        marginBottom: theme.spacing.unit * 2,
+        textAlign: "center"
+    },
+    input: {
+        width: "100%"
     }
 });
 
 class ItemSelect extends React.Component {
     state = {
         item: "",
-        name: "item"
+        tries: ""
+    };
+
+    handleInputChange = event => {
+        this.setState({ tries: event.target.value });
+        event.tries = event.target.value;
+        this.props.handleInputChange(event);
     };
 
     handleSelectChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ item: event.target.value });
         event.type = this.props.type;
         this.props.handleSelectChange(event);
     };
@@ -39,19 +56,52 @@ class ItemSelect extends React.Component {
         const { classes } = this.props;
 
         return (
-            <FormControl className={classes.root}>
-                <InputLabel htmlFor="item">Item</InputLabel>
-                <Select
-                    value={this.state.item}
-                    onChange={this.handleSelectChange}
-                    inputProps={{
-                        name: "item",
-                        id: "item"
-                    }}
+            <Paper className={classes.root}>
+                <Grid
+                    container
+                    spacing={24}
+                    className={classes.grid}
+                    justify="center"
                 >
-                    {this.createSelectItems()}
-                </Select>
-            </FormControl>
+                    <Grid item xs={12}>
+                        <Typography variant="h5" className={classes.title}>
+                            Select a category and an item, enter your tries and
+                            find out how unlucky you really are.
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={6}>
+                        <FormControl className={classes.input}>
+                            <TextField
+                                label="Tries"
+                                type="number"
+                                value={this.state.tries}
+                                onChange={this.handleInputChange}
+                                inputProps={{
+                                    name: "tries",
+                                    id: "tries"
+                                }}
+                            />
+                        </FormControl>
+                    </Grid>
+
+                    <Grid item xs={6}>
+                        <FormControl className={classes.input}>
+                            <InputLabel htmlFor="item">Item</InputLabel>
+                            <Select
+                                value={this.state.item}
+                                onChange={this.handleSelectChange}
+                                inputProps={{
+                                    name: "item",
+                                    id: "item"
+                                }}
+                            >
+                                {this.createSelectItems()}
+                            </Select>
+                        </FormControl>
+                    </Grid>
+                </Grid>
+            </Paper>
         );
     }
 }

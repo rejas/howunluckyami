@@ -18,9 +18,6 @@ const styles = theme => ({
     title: {
         marginBottom: theme.spacing.unit * 2,
         textAlign: "center"
-    },
-    input: {
-        width: "100%"
     }
 });
 
@@ -70,22 +67,21 @@ class ItemSelect extends React.Component {
                     </Grid>
 
                     <Grid item xs={12} sm={6}>
-                        <FormControl className={classes.input}>
-                            <TextField
-                                label="Tries"
-                                type="number"
-                                value={this.state.tries}
-                                onChange={this.handleInputChange}
-                                inputProps={{
-                                    name: "tries",
-                                    id: "tries"
-                                }}
-                            />
-                        </FormControl>
+                        <TextField
+                            fullWidth
+                            label="Tries"
+                            type="number"
+                            value={this.state.tries}
+                            onChange={this.handleInputChange}
+                            inputProps={{
+                                name: "tries",
+                                id: "tries"
+                            }}
+                        />
                     </Grid>
 
                     <Grid item xs={12} sm={6}>
-                        <FormControl className={classes.input}>
+                        <FormControl fullWidth>
                             <InputLabel htmlFor="item">Item</InputLabel>
                             <Select
                                 value={this.state.item}

@@ -5,18 +5,21 @@ import green from "@material-ui/core/colors/green";
 import "typeface-roboto";
 
 const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: red[300],
-      main: red[500],
-      dark: red[700]
+    palette: {
+        primary: {
+            light: red[300],
+            main: red[500],
+            dark: red[700]
+        },
+        secondary: {
+            light: green[300],
+            main: green[500],
+            dark: green[700]
+        }
     },
-    secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700]
+    typography: {
+        useNextVariants: true
     }
-  }
 });
 
 export default theme;

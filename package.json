@@ -1,6 +1,7 @@
 {
   "name": "hulai",
-  "version": "0.2.3",
+  "version": "0.2.4",
+  "homepage": "https://howunluckyami.com/",
   "private": true,
   "browserslist": [
     ">0.2%",
@@ -16,7 +17,7 @@
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.0.5",
-    "typeface-roboto": "0.0.54"
+    "typeface-roboto": "^0.0.54"
   },
   "devDependencies": {
     "ajv": "^6.5.4",

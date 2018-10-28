@@ -20,7 +20,7 @@ function Info(props) {
     return (
         <Paper className={classes.paper}>
             <Typography variant="h5" className={classes.title}>
-                Select a category and an item, enter your tries and find out how
+                Select a category and item, enter your tries and find out how
                 unlucky you really are.
             </Typography>
         </Paper>

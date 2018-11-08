@@ -1,14 +1,23 @@
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
 
-export default class AdComponent extends React.Component {
+const styles = theme => ({
+    adsbygoogle: {
+        paddingBottom: theme.spacing.navHeight + theme.spacing.unit
+    }
+});
+
+class AdComponent extends React.Component {
     componentDidMount() {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
             <ins
-                className="adsbygoogle"
+                className={classes.adsbygoogle}
                 style={{ display: "block" }}
                 data-ad-client="ca-pub-8245757393003756"
                 data-ad-slot="6161702689"
@@ -17,3 +26,5 @@ export default class AdComponent extends React.Component {
         );
     }
 }
+
+export default withStyles(styles)(AdComponent);

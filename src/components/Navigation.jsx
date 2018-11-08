@@ -9,9 +9,9 @@ import MountIcon from "../img/mounts.jpg";
 import PetsIcon from "../img/pets.jpg";
 import ToysIcon from "../img/toys.jpg";
 
-const styles = {
+const styles = theme => ({
     root: {
-        height: "80px",
+        height: theme.spacing.navHeight,
         position: "fixed",
         bottom: "0",
         width: "100vw"
@@ -19,7 +19,7 @@ const styles = {
     selected: {
         fontWeight: "bold"
     }
-};
+});
 
 class Navigation extends React.Component {
     state = {

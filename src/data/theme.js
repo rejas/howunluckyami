@@ -19,6 +19,9 @@ const theme = createMuiTheme({
     },
     typography: {
         useNextVariants: true
+    },
+    spacing: {
+        navHeight: 80
     }
 });
 

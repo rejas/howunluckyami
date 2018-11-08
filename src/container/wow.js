@@ -8,6 +8,7 @@ import Info from "../components/Info";
 import ItemSelect from "../components/ItemSelect";
 import Navigation from "../components/Navigation";
 import Result from "../components/Result";
+import AdComponent from "../components/AdComponent";
 
 const styles = theme => ({
     root: {
@@ -97,6 +98,10 @@ class Wow extends React.Component {
                             item={this.state.item}
                             tries={this.state.tries}
                         />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <AdComponent />
                     </Grid>
                 </Grid>
 

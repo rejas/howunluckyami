@@ -17,13 +17,10 @@ const styles = theme => ({
 });
 
 function Result(props) {
-    const { classes } = props;
+    const { classes, item, tries } = props;
 
-    let result =
-            Math.floor(
-                (1 - Math.pow(1 - props.item.rate, props.tries)) * 10000
-            ) / 100,
-        link = "http://www.wowhead.com/item=" + props.item.id;
+    let result = Math.floor((1 - Math.pow(1 - item.rate, tries)) * 10000) / 100,
+        link = "http://www.wowhead.com/item=" + item.id;
 
     if (isNaN(result)) {
         result = 0;
@@ -39,7 +36,7 @@ function Result(props) {
                 >
                     The chance of dropping{" "}
                     <a target="_blank" href={link} rel="noopener noreferrer">
-                        {props.item.name}
+                        {item.name}
                     </a>{" "}
                     at least once in your runs is:
                 </Typography>
@@ -48,9 +45,11 @@ function Result(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button href={link} color="secondary" size="small">
-                    More info
-                </Button>
+                {item.id && (
+                    <Button href={link} color="secondary" size="small">
+                        More info
+                    </Button>
+                )}
             </CardActions>
         </Card>
     );

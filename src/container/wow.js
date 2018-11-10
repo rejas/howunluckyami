@@ -2,13 +2,13 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import GoogleAd from "react-google-ads";
 import Data from "../data/items.js";
 import Header from "../components/Header";
 import Info from "../components/Info";
 import ItemSelect from "../components/ItemSelect";
 import Navigation from "../components/Navigation";
 import Result from "../components/Result";
-import AdComponent from "../components/AdComponent";
 
 const styles = theme => ({
     root: {
@@ -17,6 +17,9 @@ const styles = theme => ({
     },
     grid: {
         padding: theme.spacing.unit * 2
+    },
+    ad: {
+        marginBottom: theme.spacing.navHeight + theme.spacing.unit
     }
 });
 
@@ -101,7 +104,11 @@ class Wow extends React.Component {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <AdComponent />
+                        <GoogleAd
+                            className={classes.ad}
+                            client="ca-pub-8245757393003756"
+                            slot="6161702689"
+                        />
                     </Grid>
                 </Grid>
 

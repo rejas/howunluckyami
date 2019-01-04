@@ -46,7 +46,13 @@ function Result(props) {
             </CardContent>
             <CardActions>
                 {item.id && (
-                    <Button href={link} color="secondary" size="small">
+                    <Button
+                        target="_blank"
+                        href={link}
+                        rel="noopener noreferrer"
+                        color="secondary"
+                        size="small"
+                    >
                         More info
                     </Button>
                 )}

@@ -10,112 +10,109 @@ import ItemSelect from "../components/ItemSelect";
 import Navigation from "../components/Navigation";
 import Result from "../components/Result";
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-        overflow: "hidden"
-    },
-    grid: {
-        padding: theme.spacing.unit * 2
-    },
-    ad: {
-        marginBottom: theme.spacing.navHeight + theme.spacing.unit
-    }
+const styles = (theme) => ({
+  root: {
+    flexGrow: 1,
+    overflow: "hidden",
+  },
+  grid: {
+    padding: theme.spacing.unit * 2,
+  },
+  ad: {
+    marginBottom: theme.spacing.navHeight + theme.spacing.unit,
+  },
 });
 
 class Wow extends React.Component {
-    state = {
-        item: "",
-        tries: "",
-        type: ""
-    };
+  state = {
+    item: "",
+    tries: "",
+    type: "",
+  };
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSelectChange = this.handleSelectChange.bind(this);
-    }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+  }
 
-    handleInputChange = event => {
-        this.setState({ tries: event.tries });
-    };
+  handleInputChange = (event) => {
+    this.setState({ tries: event.tries });
+  };
 
-    handleSelectChange = event => {
-        let value = Data[event.type].filter(function(item) {
-            return item.id === Number(event.target.value);
-        });
-        this.setState({ item: value[0] });
-    };
+  handleSelectChange = (event) => {
+    let value = Data[event.type].filter(function (item) {
+      return item.id === Number(event.target.value);
+    });
+    this.setState({ item: value[0] });
+  };
 
-    render() {
-        const { classes } = this.props;
+  render() {
+    const { classes } = this.props;
 
-        return (
-            <div className={classes.root}>
-                <Header />
+    return (
+      <div className={classes.root}>
+        <Header />
 
-                <Grid container spacing={24} className={classes.grid}>
-                    <Grid item xs={12} md={6}>
-                        <Route exact path="/" component={Info} />
+        <Grid container spacing={24} className={classes.grid}>
+          <Grid item xs={12} md={6}>
+            <Route exact path="/" component={Info} />
 
-                        <Route
-                            path="/mounts"
-                            render={props => (
-                                <ItemSelect
-                                    {...props}
-                                    handleInputChange={this.handleInputChange}
-                                    handleSelectChange={this.handleSelectChange}
-                                    type="mounts"
-                                />
-                            )}
-                        />
+            <Route
+              path="/mounts"
+              render={(props) => (
+                <ItemSelect
+                  {...props}
+                  handleInputChange={this.handleInputChange}
+                  handleSelectChange={this.handleSelectChange}
+                  type="mounts"
+                />
+              )}
+            />
 
-                        <Route
-                            path="/pets"
-                            render={props => (
-                                <ItemSelect
-                                    {...props}
-                                    handleInputChange={this.handleInputChange}
-                                    handleSelectChange={this.handleSelectChange}
-                                    type="pets"
-                                />
-                            )}
-                        />
+            <Route
+              path="/pets"
+              render={(props) => (
+                <ItemSelect
+                  {...props}
+                  handleInputChange={this.handleInputChange}
+                  handleSelectChange={this.handleSelectChange}
+                  type="pets"
+                />
+              )}
+            />
 
-                        <Route
-                            path="/toys"
-                            render={props => (
-                                <ItemSelect
-                                    {...props}
-                                    handleInputChange={this.handleInputChange}
-                                    handleSelectChange={this.handleSelectChange}
-                                    type="toys"
-                                />
-                            )}
-                        />
-                    </Grid>
+            <Route
+              path="/toys"
+              render={(props) => (
+                <ItemSelect
+                  {...props}
+                  handleInputChange={this.handleInputChange}
+                  handleSelectChange={this.handleSelectChange}
+                  type="toys"
+                />
+              )}
+            />
+          </Grid>
 
-                    <Grid item xs={12} md={6}>
-                        <Result
-                            item={this.state.item}
-                            tries={this.state.tries}
-                        />
-                    </Grid>
+          <Grid item xs={12} md={6}>
+            <Result item={this.state.item} tries={this.state.tries} />
+          </Grid>
 
-                    <Grid item xs={12}>
-                        <GoogleAd
-                            className={classes.ad}
-                            client="ca-pub-8245757393003756"
-                            slot="6161702689"
-                        />
-                    </Grid>
-                </Grid>
+          <Grid item xs={12}>
+            <GoogleAd
+              className={classes.ad}
+              client="ca-pub-8245757393003756"
+              slot="6161702689"
+            />
+          </Grid>
+        </Grid>
 
-                <Navigation />
-            </div>
-        );
-    }
+        <Navigation />
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles)(Wow);

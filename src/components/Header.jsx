@@ -6,34 +6,34 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import GamepadIcon from "@material-ui/icons/Gamepad";
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1
-    },
-    logo: {
-        marginRight: theme.spacing.unit * 2
-    }
+const styles = (theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  logo: {
+    marginRight: theme.spacing.unit * 2,
+  },
 });
 
 class Header extends React.Component {
-    render() {
-        const { classes } = this.props;
+  render() {
+    const { classes } = this.props;
 
-        return (
-            <div className={classes.root}>
-                <AppBar position="static" color="default">
-                    <Toolbar>
-                        <GamepadIcon className={classes.logo} />
-                        <Typography variant="h5">How unlucky am I?</Typography>
-                    </Toolbar>
-                </AppBar>
-            </div>
-        );
-    }
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" color="default">
+          <Toolbar>
+            <GamepadIcon className={classes.logo} />
+            <Typography variant="h5">How unlucky am I?</Typography>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 Header.propTypes = {
-    classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Header);

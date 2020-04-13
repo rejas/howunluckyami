@@ -6,16 +6,16 @@ import theme from "../data/theme";
 import Main from "../container/wow";
 
 class App extends React.Component {
-    render() {
-        return (
-            <MuiThemeProvider theme={theme}>
-                <CSSBaseline />
-                <BrowserRouter>
-                    <Main />
-                </BrowserRouter>
-            </MuiThemeProvider>
-        );
-    }
+  render() {
+    return (
+      <MuiThemeProvider theme={theme}>
+        <CSSBaseline />
+        <BrowserRouter>
+          <Main />
+        </BrowserRouter>
+      </MuiThemeProvider>
+    );
+  }
 }
 
 export default App;

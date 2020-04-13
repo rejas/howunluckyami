@@ -1,8 +1,7 @@
 {
   "name": "hulai",
   "version": "0.3.0",
-  "homepage": "https://howunluckyami.com/",
-  "private": true,
+  "homepage": ".",
   "browserslist": [
     ">0.2%",
     "not dead",

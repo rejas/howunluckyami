@@ -1,0 +1,33 @@
+name: Build and Deploy
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+
+            - name: Setup Node
+              uses: actions/setup-node@v1
+
+            - name: Run npm install and build
+              run: |
+                  npm ci
+                  npm run build --if-present
+
+            - name: Install SSH Client 🔑
+              uses: webfactory/ssh-agent@v0.2.0
+              with:
+                  ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
+            - name: Deploy to gh-pages 🚀
+              uses: JamesIves/github-pages-deploy-action@releases/v3
+              with:
+                  SSH: true
+                  BASE_BRANCH: master # The branch the action should deploy from.
+                  BRANCH: gh-pages # The branch the action should deploy to.
+                  FOLDER: build # The folder the action should deploy.
+                  CLEAN: true

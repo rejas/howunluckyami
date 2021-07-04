@@ -11,7 +11,6 @@ import ToysIcon from "../img/toys.jpg";
 
 const styles = (theme) => ({
   root: {
-    height: theme.spacing.navHeight,
     position: "fixed",
     bottom: "0",
     width: "100vw",

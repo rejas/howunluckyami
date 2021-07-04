@@ -13,10 +13,10 @@ import Grid from "@material-ui/core/Grid/Grid";
 
 const styles = (theme) => ({
   root: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing(2),
   },
   title: {
-    marginBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing(2),
     textAlign: "center",
   },
 });
@@ -53,8 +53,8 @@ class ItemSelect extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Paper className={classes.root}>
-        <Grid container spacing={24} className={classes.grid} justify="center">
+      <Paper elevation={2} className={classes.root}>
+        <Grid container spacing={3} className={classes.grid} justify="center">
           <Grid item xs={12}>
             <Typography variant="h5" className={classes.title}>
               Select a category, an item and enter your tries.

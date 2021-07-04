@@ -17,12 +17,6 @@ const theme = createMuiTheme({
       dark: green[700],
     },
   },
-  typography: {
-    useNextVariants: true,
-  },
-  spacing: {
-    navHeight: 80,
-  },
 });
 
 export default theme;

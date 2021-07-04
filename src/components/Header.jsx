@@ -11,7 +11,7 @@ const styles = (theme) => ({
     flexGrow: 1,
   },
   logo: {
-    marginRight: theme.spacing.unit * 2,
+    marginRight: theme.spacing(2),
   },
 });
 

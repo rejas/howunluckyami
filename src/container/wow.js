@@ -16,10 +16,10 @@ const styles = (theme) => ({
     overflow: "hidden",
   },
   grid: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing(2),
   },
   ad: {
-    marginBottom: theme.spacing.navHeight + theme.spacing.unit,
+    marginBottom: theme.spacing.navHeight + theme.spacing(1),
   },
 });
 
@@ -55,7 +55,7 @@ class Wow extends React.Component {
       <div className={classes.root}>
         <Header />
 
-        <Grid container spacing={24} className={classes.grid}>
+        <Grid container spacing={3} className={classes.grid}>
           <Grid item xs={12} md={6}>
             <Route exact path="/" component={Info} />
 

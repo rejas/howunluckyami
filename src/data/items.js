@@ -1,4 +1,4 @@
-export default {
+const items = {
   mounts: [
     { id: 13335, name: "Deathcharger's Reins", rate: 0.008 },
     { id: 30480, name: "Fiery Warhorse's Reins", rate: 0.01 },
@@ -68,3 +68,5 @@ export default {
     { id: 86584, name: "Hardened Shell", rate: 0.18 },
   ],
 };
+
+export default items;

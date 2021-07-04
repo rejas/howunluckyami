@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import GoogleAd from "react-google-ads";
-import Data from "../data/items.js";
+import Items from "../data/items.js";
 import Header from "../components/Header";
 import Info from "../components/Info";
 import ItemSelect from "../components/ItemSelect";
@@ -42,7 +42,7 @@ class Wow extends React.Component {
   };
 
   handleSelectChange = (event) => {
-    let value = Data[event.type].filter(function (item) {
+    let value = Items[event.type].filter(function (item) {
       return item.id === Number(event.target.value);
     });
     this.setState({ item: value[0] });

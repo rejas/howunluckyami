@@ -2,7 +2,6 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import GoogleAd from "react-google-ads";
 import Items from "../data/items.js";
 import Header from "../components/Header";
 import Info from "../components/Info";
@@ -98,14 +97,6 @@ class Wow extends React.Component {
 
           <Grid item xs={12} md={6}>
             <Result item={this.state.item} tries={this.state.tries} />
-          </Grid>
-
-          <Grid item xs={12}>
-            <GoogleAd
-              className={classes.ad}
-              client="ca-pub-8245757393003756"
-              slot="6161702689"
-            />
           </Grid>
         </Grid>
 

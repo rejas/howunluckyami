@@ -54,7 +54,12 @@ class ItemSelect extends React.Component {
 
     return (
       <Paper elevation={2} className={classes.root}>
-        <Grid container spacing={3} className={classes.grid} justifyContent="center">
+        <Grid
+          container
+          spacing={3}
+          className={classes.grid}
+          justifyContent="center"
+        >
           <Grid item xs={12}>
             <Typography variant="h5" className={classes.title}>
               Select a category, an item and enter your tries.

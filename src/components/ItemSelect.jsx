@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Paper from "@material-ui/core/Paper";
-import Select from "@material-ui/core/Select";
-import TextField from "@material-ui/core/TextField/TextField";
+import withStyles from "@mui/styles/withStyles";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Paper from "@mui/material/Paper";
+import Select from "@mui/material/Select";
+import TextField from "@mui/material/TextField/TextField";
+import Typography from "@mui/material/Typography/Typography";
+import Grid from "@mui/material/Grid/Grid";
 import Items from "../data/items";
-import Typography from "@material-ui/core/Typography/Typography";
-import Grid from "@material-ui/core/Grid/Grid";
 
 const styles = (theme) => ({
   root: {
@@ -35,7 +35,7 @@ class ItemSelect extends React.Component {
 
   handleSelectChange = (event) => {
     this.setState({ item: event.target.value });
-    event.type = this.props.type;
+    event.item = this.props.type;
     this.props.handleSelectChange(event);
   };
 

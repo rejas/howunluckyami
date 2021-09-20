@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
-import Avatar from "@material-ui/core/Avatar";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import withStyles from "@mui/styles/withStyles";
+import Avatar from "@mui/material/Avatar";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import MountIcon from "../img/mounts.jpg";
 import PetsIcon from "../img/pets.jpg";
 import ToysIcon from "../img/toys.jpg";

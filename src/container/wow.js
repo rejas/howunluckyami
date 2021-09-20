@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { withStyles } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
+import withStyles from "@mui/styles/withStyles";
+import Grid from "@mui/material/Grid";
 import Items from "../data/items.js";
 import Header from "../components/Header";
 import Info from "../components/Info";
@@ -41,7 +41,7 @@ class Wow extends React.Component {
   };
 
   handleSelectChange = (event) => {
-    let value = Items[event.type].filter(function (item) {
+    let value = Items[event.item].filter(function (item) {
       return item.id === Number(event.target.value);
     });
     this.setState({ item: value[0] });

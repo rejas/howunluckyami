@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "./static/js/main.23c04417.chunk.js",
+    "main.js.map": "./static/js/main.23c04417.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.56be74b6.js",
+    "runtime-main.js.map": "./static/js/runtime-main.56be74b6.js.map",
+    "static/css/2.65aa3b33.chunk.css": "./static/css/2.65aa3b33.chunk.css",
+    "static/js/2.28c0fe6a.chunk.js": "./static/js/2.28c0fe6a.chunk.js",
+    "static/js/2.28c0fe6a.chunk.js.map": "./static/js/2.28c0fe6a.chunk.js.map",
+    "static/js/3.bd2c4236.chunk.js": "./static/js/3.bd2c4236.chunk.js",
+    "static/js/3.bd2c4236.chunk.js.map": "./static/js/3.bd2c4236.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.65aa3b33.chunk.css.map": "./static/css/2.65aa3b33.chunk.css.map",
+    "static/js/2.28c0fe6a.chunk.js.LICENSE.txt": "./static/js/2.28c0fe6a.chunk.js.LICENSE.txt",
+    "static/media/index.css": "./static/media/roboto-latin-900italic.cb5ad999.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.56be74b6.js",
+    "static/css/2.65aa3b33.chunk.css",
+    "static/js/2.28c0fe6a.chunk.js",
+    "static/js/main.23c04417.chunk.js"
+  ]
+}
